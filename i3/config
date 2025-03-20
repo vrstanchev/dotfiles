@@ -1,0 +1,90 @@
+# Font Settings
+font pango:DejaVu Sans Mono 20
+
+# Modifier Key
+set $mod Mod4
+
+# Basic Keybindings
+bindsym $mod+Return exec x-terminal-emulator -fa 'Monospace' -fs 20
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec dmenu_run -fn 'Monospace-20'
+
+# Window Focus Bindings
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Move Windows
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Window Splitting
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Window Management
+bindsym $mod+f fullscreen toggle
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+
+# Workspace Management
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+
+# Reload and Restart i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Resize Mode
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Status Bar Configuration
+bar {
+    status_command i3status
+    position top
+    font pango:DejaVu Sans Mono 20
+}
+
+# System Commands (Power Menu)
+set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec i3exit lock, mode "default"
+    bindsym e exec i3exit logout, mode "default"
+    bindsym r exec i3exit reboot, mode "default"
+    bindsym Shift+s exec i3exit shutdown, mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+# Volume Control
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q sset Master toggle
+
+# Custom App Bindings
+bindsym $mod+c exec chromium
+bindsym $mod+n exec nnn
+bindsym $mod+x exec hexchat
+
+# Autostart Applications
+exec --no-startup-id nm-applet
+exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id gxkb
