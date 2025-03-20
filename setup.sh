@@ -21,8 +21,8 @@ EOF
 # Configure Git
 cat <<EOF > ~/.gitconfig
 [user]
-    name = Your Name
-    email = your.email@example.com
+    name = vrstanchev
+    email = vrstanchev@gmail.com
 
 [core]
     editor = vim
