@@ -51,6 +51,7 @@ curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | s
 
 # Create an alias for nnn with plugins enabled
 echo 'alias n="nnn -e"' >> ~/.bashrc
-echo 'alias n="nnn -e"' >> ~/.zshrc
+mv puma.jpg ~/
+feh --bg-scale puma.jpg
 
 echo "Minimal setup for Vim, Git, Zathura, and nnn completed!"
