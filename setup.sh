@@ -4,7 +4,7 @@
 sudo apt update
 
 # Install Vim, Git, Zathura, and nnn (Vim-like file manager)
-sudo apt install -y vim git zathura nnn
+sudo apt install -y vim git zathura nnn screenkey
 
 # Create a minimal Vim configuration
 cat <<EOF > ~/.vimrc
