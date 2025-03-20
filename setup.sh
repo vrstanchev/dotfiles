@@ -45,12 +45,7 @@ set icons
 set showdetail
 EOF
 
-# Enable nnn plugins (optional)
-mkdir -p ~/.config/nnn/plugins
-curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 
-# Create an alias for nnn with plugins enabled
-echo 'alias n="nnn -e"' >> ~/.bashrc
 mv puma.jpg ~/
 feh --bg-scale puma.jpg
 
