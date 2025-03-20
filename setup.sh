@@ -4,7 +4,7 @@
 sudo apt update
 
 # Install Vim, Git, Zathura, and lf (Vim-like file manager)
-sudo apt install -y vim git zathura lf
+sudo apt install -y vim git zathura nnn
 
 # Create a minimal Vim configuration
 cat <<EOF > ~/.vimrc
