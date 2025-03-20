@@ -3,7 +3,7 @@
 # Update package list
 sudo apt update
 
-# Install Vim, Git, Zathura, and lf (Vim-like file manager)
+# Install Vim, Git, Zathura, and nnn (Vim-like file manager)
 sudo apt install -y vim git zathura nnn
 
 # Create a minimal Vim configuration
@@ -37,27 +37,20 @@ set statusbar-v-padding 5
 set smooth-scroll true
 EOF
 
-# Configure lf (file manager) with Vim keybindings
-mkdir -p ~/.config/lf
-cat <<EOF > ~/.config/lf/lfrc
+# Configure nnn with Vim-like keybindings
+mkdir -p ~/.config/nnn
+cat <<EOF > ~/.config/nnn/nnnrc
 set hidden
-set previewer ~/.config/lf/pv.sh
-map i open
-map l open
-map h up
-map j down
-map k up
+set icons
+set showdetail
 EOF
 
-# Create a basic file previewer for lf
-cat <<EOF > ~/.config/lf/pv.sh
-#!/bin/sh
-case "\$1" in
-    *.txt|*.md) bat --style=plain --paging=never "\$1";;
-    *.png|*.jpg|*.jpeg) chafa "\$1";;
-    *.pdf) pdftotext "\$1" -;;
-esac
-EOF
-chmod +x ~/.config/lf/pv.sh
+# Enable nnn plugins (optional)
+mkdir -p ~/.config/nnn/plugins
+curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 
-echo "Minimal setup for Vim, Git, Zathura, and lf completed!"
+# Create an alias for nnn with plugins enabled
+echo 'alias n="nnn -e"' >> ~/.bashrc
+echo 'alias n="nnn -e"' >> ~/.zshrc
+
+echo "Minimal setup for Vim, Git, Zathura, and nnn completed!"
