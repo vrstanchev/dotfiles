@@ -11,18 +11,17 @@ bindsym $mod+d exec dmenu_run -fn 'Monospace-20'
 
 # Window Focus Bindings
 bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+k focus right
+bindsym $mod+h focus up
+bindsym $mod+l focus down
 
 # Move Windows
 bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+k move right
+bindsym $mod+Shift+h move up
+bindsym $mod+Shift+l move down
 
 # Window Splitting
-bindsym $mod+h split h
 bindsym $mod+v split v
 
 # Window Management
@@ -48,9 +47,9 @@ bindsym $mod+Shift+r restart
 # Resize Mode
 mode "resize" {
     bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym k resize grow width 10 px or 10 ppt
+    bindsym h resize shrink height 10 px or 10 ppt
+    bindsym l resize grow height 10 px or 10 ppt
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
