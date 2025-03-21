@@ -3,8 +3,8 @@
 # Update package list
 sudo apt update
 
-# Install Vim, Git, Zathura, and nnn (Vim-like file manager)
-sudo apt install -y vim git zathura nnn screenkey
+# Install Vim, Git, Zathura, nnn, screenkey, and gxkb
+sudo apt install -y vim git zathura nnn screenkey gxkb
 
 # Create a minimal Vim configuration
 cat <<EOF > ~/.vimrc
@@ -45,8 +45,15 @@ set icons
 set showdetail
 EOF
 
+# Set up gxkb with English and Bulgarian layouts
+mkdir -p ~/.config/gxkb
+cat <<EOF > ~/.config/gxkb/gxkb.cfg
+[layout]
+default_layout=us,bg
+EOF
 
+# Set wallpaper
 mv puma.jpg ~/
-feh --bg-scale puma.jpg
+feh --bg-scale ~/puma.jpg
 
-echo "Minimal setup for Vim, Git, Zathura, and nnn completed!"
+echo "Minimal setup for Vim, Git, Zathura, nnn, and gxkb (EN/BG layouts) completed!"
