@@ -50,8 +50,15 @@ EOF
 # Set up gxkb with English and Bulgarian layouts
 mkdir -p ~/.config/gxkb
 cat <<EOF > ~/.config/gxkb/gxkb.cfg
-[layout]
-default_layout=us,bg
+[xkb config]
+group_policy=2
+default_group=0
+never_modify_config=false
+model=pc105
+layouts=us,bg
+variants=
+toggle_option=grp:alt_shift_toggle
+compose_key_position=
 EOF
 
 # Set wallpaper
