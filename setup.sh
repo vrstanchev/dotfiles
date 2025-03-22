@@ -4,7 +4,7 @@
 sudo apt update
 
 # Install Vim, Git, Zathura, nnn, screenkey, and gxkb
-sudo apt install -y vim git zathura nnn screenkey gxkb
+sudo apt install -y vim git zathura nnn screenkey gxkb fzf
 
 # Create a minimal Vim configuration
 cat <<EOF > ~/.vimrc
@@ -33,10 +33,18 @@ EOF
 # Create Zathura config directory and minimal config
 mkdir -p ~/.config/zathura
 cat <<EOF > ~/.config/zathura/zathurarc
-set recolor true
-set statusbar-h-padding 5
-set statusbar-v-padding 5
+set background dark
+set font 'Monospace 20'
 set smooth-scroll true
+set zoom 100
+set mouse-enabled true
+map <C-l> reload
+map <C-q> quit
+map <C-+> zoom-in
+map <C--> zoom-out
+set search-engine 'fzf'
+set highlight-sync true
+
 EOF
 
 # Configure nnn with Vim-like keybindings
