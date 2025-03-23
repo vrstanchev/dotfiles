@@ -39,13 +39,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up h
-set $down l
-set $left j
-set $right k
-
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
@@ -68,34 +61,28 @@ bindsym Mod4+d exec --no-startup-id dmenu_run
 # bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym Mod4+$left focus left
-bindsym Mod4+$down focus down
-bindsym Mod4+$up focus up
-bindsym Mod4+$right focus right
+# Vim-style focus movement
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+# Move focused window
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
 
-# move focused window
-bindsym Mod4+Shift+$left move left
-bindsym Mod4+Shift+$down move down
-bindsym Mod4+Shift+$up move up
-bindsym Mod4+Shift+$right move right
-
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
 bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Up move up
 bindsym Mod4+Shift+Right move right
 
-# split in horizontal orientation
-bindsym Mod4+h split h
-
-# split in vertical orientation
+# Split window (fixing conflict)
 bindsym Mod4+v split v
+bindsym Mod4+b split h  # Changed from Mod4+h to Mod4+b to avoid conflict
+
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
