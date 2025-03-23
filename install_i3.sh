@@ -12,8 +12,8 @@ mkdir -p ~/.config/i3 ~/.config/i3status
 
 # Check if user has a dotfiles directory
 if [ -d "~/dotfiles/i3" ]; then
-    cp ~/dotfiles/i3/config ~/.config/i3/config
-    cp ~/dotfiles/i3status/config ~/.config/i3status/config
+   sudo cp ~/dotfiles/i3/config ~/.config/i3/config
+   sudo cp ~/dotfiles/i3status/i3status.conf /etc/
     echo "Custom i3 configs applied."
 else
     echo "No custom configs found. Using default i3 config."
