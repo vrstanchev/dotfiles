@@ -10,14 +10,16 @@ sudo apt install -y vim git zathura nnn screenkey gxkb fzf
 cat <<EOF > ~/.vimrc
 set nocompatible
 set number
-set relativenumber
 syntax on
-set expandtab 
-set shiftwidth=4 
-set softtabstop=4
-set autoindent
+set expandtab shiftwidth=4 softtabstop=4 autoindent
 set hlsearch incsearch
 set clipboard=unnamedplus
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
 EOF
 
 # Configure Git
